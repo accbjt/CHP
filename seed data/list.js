@@ -4,11 +4,15 @@ db.restaurantcollection.insert({
 	"restaurant" : "Falafel Corner",
 	"restaurantitem" : [
 		{"item" : "Chicken Shish Kabob"},
+        {"item" : "Classic Hamburger"},
+        {"item" : "Classic Cheeseburger"},
+        {"item" : "Double Cheeseburger"},
 		{"item" : "Avocado Burger"},
 		{"item" : "Hawaiian"},
-		{"item" : "Double Cheeseburger"},
 		{"item" : "Tex-Mex Burger"},
-		{"item" : "Bacon Cheddar"},
+		{"item" : "Bacon Cheddar Burger"},
+        {"item" : "Beef, Chicken or Veggie Patty: Whole Wheat Bun Available"},
+        {"item" : "6 Buffalo, BBQ or Teriyaki Wings"},
 		{"item" : "Pepperoni pizza"},
 		{"item" : "Cheese pizza"}
 	    ]});
