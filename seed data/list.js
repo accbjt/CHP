@@ -25,8 +25,8 @@ db.restaurantcollection.insert({
         {"item" : "Pear and Gorgonzola Salad"},
         {"item" : "ZBQ Salad"},
         {"item" : "Hot Meatball Sub"},
-        {"item" : "Turkey Breast"},
-        {"item" : "Pollo Latino"},
+        {"item" : "Turkey Breast Sandwich"},
+        {"item" : "Pollo Latino Sandwich"},
         {"item" : "Z-Tuna Sandwich"},
         {"item" : "Supersub"},
         {"item" : "Yuppie Chicken Sandwich"},
@@ -35,9 +35,14 @@ db.restaurantcollection.insert({
         {"item" : "Chicken Penne Pesto"},
 		{"item" : "Veggie Calzone"},
 		{"item" : "Meat Calzone"},
-		{"item" : "Chicken Penne"},
+        {"item" : "Cheese Pizza"},
+        {"item" : "Sausage & Mushrooms"},
+        {"item" : "Pepperoni"},
 		{"item" : "Ham and Pineapple"},
-		{"item" : "Ham Pizza"}
+        {"item" : "Chicken Sausage & Arugula Rustica"},
+        {"item" : "Mediterranean Rustica"},
+        {"item" : "Pear and Gorgonzola Rustica"},
+        {"item" : "Curry Chicken & Yam Rustica"}
         ]});
 
 db.restaurantcollection.insert({
