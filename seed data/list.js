@@ -54,9 +54,12 @@ db.restaurantcollection.insert({
         {"item" : "The Chief"},
         {"item" : "Chick-Chick Boom!"},
         {"item" : "Uncle Philly"},
-        {"item" : "Club"},
-        {"item" : "Gyro"},
-        {"item" : "Tuna"},
-        {"item" : "Chiptole Steak"}
+        {"item" : "Chicken Shawarma"},
+        {"item" : "Bourbon Chipotle"},
+        {"item" : "Chicken Caesar"},
+        {"item" : "Chicken Souvlaki"}
+        {"item" : "Buffalo Chicken"},
+        {"item" : "Fiesta Mexicana"},
+        {"item" : "Thai Beef"}
 	]
 });
