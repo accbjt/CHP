@@ -1293,21 +1293,21 @@ router.post('/orderform', function(req, res) {
 });
 });
 
-    // //SIGNOUT GET
-    // router.get('/signout', function(req, res) {
-    //     res.location('/');
-    //     res.redirect('/');
-    // });
+    //SIGNOUT GET
+    router.get('/signout', function(req, res) {
+         res.location('signout');
+         res.redirect('/');
+    });
 
-    // //SIGNOUT BUTTON
-    // router.post('/signout', function(req, res) {
+    //SIGNOUT BUTTON
+    router.post('/signout', function(req, res) {
 
-    //     var db = req.db;
+         var db = req.db;
 
-    //     var login = db.get('logInId');
+         var login = db.get('logInId');
 
-    //     login.remove({});
-    // });
+         login.remove({ "id" : sessionID });
+    });
 /* POST to Add task ph1sp1 */
 router.post('/addTaskSave11', function(req, res) {
 
