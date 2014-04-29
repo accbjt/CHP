@@ -50,5 +50,13 @@ db.restaurantcollection.insert({
 		{"item" : "Gyro"},
 		{"item" : "Tuna"},
 		{"item" : "Chiptole Steak"}
+        {"item" : "Philly Steak"},
+        {"item" : "The Chief"},
+        {"item" : "Chick-Chick Boom!"},
+        {"item" : "Uncle Philly"},
+        {"item" : "Club"},
+        {"item" : "Gyro"},
+        {"item" : "Tuna"},
+        {"item" : "Chiptole Steak"}
 	]
 });
