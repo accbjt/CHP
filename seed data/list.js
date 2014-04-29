@@ -73,17 +73,17 @@ db.restaurantcollection.insert({
 	    ]});
 
 db.restaurantcollection.insert({
-	"restaurant" : "Extreme Pita",
+    "restaurant" : "Extreme Pita",
     "phonenumber" : ["510-490-7482"],
-	"restaurantitem" : [
-		{"item" : "Grilled Chicken"},
-		{"item" : "Rustic Italian"},
-		{"item" : "Falafel"},
-		{"item" : "Veggie"},
-		{"item" : "Club"},
-		{"item" : "Gyro"},
-		{"item" : "Tuna"},
-		{"item" : "Chiptole Steak"},
+    "restaurantitem" : [
+        {"item" : "Grilled Chicken"},
+        {"item" : "Rustic Italian"},
+        {"item" : "Falafel"},
+        {"item" : "Veggie"},
+        {"item" : "Club"},
+        {"item" : "Gyro"},
+        {"item" : "Tuna"},
+        {"item" : "Chiptole Steak"},
         {"item" : "Philly Steak"},
         {"item" : "The Chief"},
         {"item" : "Chick-Chick Boom!"},
@@ -95,5 +95,4 @@ db.restaurantcollection.insert({
         {"item" : "Buffalo Chicken"},
         {"item" : "Fiesta Mexicana"},
         {"item" : "Thai Beef"}
-	]
-});
+    ]});

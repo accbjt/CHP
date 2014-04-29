@@ -5,7 +5,7 @@ var restaurantVotes = Array();
 var restaurantCounts = new Array();
 var indexOfRestaurant= 0;
 var restaurantUsers = [];
-var restaurantNames = ['Falafel Corner','zPizza','Eastern Winds','King Taco'];
+var restaurantNames = ['Falafel Corner','zPizza','Eastern Winds','Extreme Pita'];
 var menuItems = Array();
 var menuItemsForCurrentOrder = '';
 var sessionID;
