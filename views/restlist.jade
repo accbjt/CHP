@@ -51,7 +51,7 @@ block content
                             |       #{rest.restaurant}
                     br
 
-                button(style="margin-bottom:10px;" type='submit', id='dissable',name='') submit1
+                button(style="margin-bottom:10px;" type='submit', id='dissable',name='') Submit
 
             //- form#formWinningRest(name="winningrestaurant",method="get",action="/winningrestaurant")
                 //- button(type='submit', id='showresultsbtn') Show Results
@@ -68,12 +68,12 @@ block content
                 br
 
             form#formmenuItemSubmit(name="submitteditem",method="post",action="/NewItemForCurrentOrder")
-                input(type='text', class='selecteditem commentOrder', name='selecteditem', value='')
+                input(type='text', class='selecteditem commentOrder', name='selecteditem', value='', readonly)
                 input(type="text", class="form-control commentOrder", name='specialRequest', id="userComments" ,placeholder="Special Request")
                 input(type="hidden", name="highestVote", value="#{highestVote}")
                 - var restphone = restlist[highestVote]
                 input(type="hidden", name="restphone", value="#{restphone.phonenumber[0]}")
-                button(type='submit', id='submititembtn') submit2
+                button(type='submit', id='submititembtn') Submit
 
         script.
                 $(document).ready(function(){

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a40a97c4-4f4c-4420-ab63-831e98358c02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/login.jade" afterPath="$PROJECT_DIR$/views/login.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/newrestaurant.jade" afterPath="$PROJECT_DIR$/views/newrestaurant.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/restlist.jade" afterPath="$PROJECT_DIR$/views/restlist.jade" />
     </list>
     <ignored path="CHP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,9 +29,25 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8846154" vertical-offset="19354" max-vertical-offset="20280">
-              <caret line="1297" column="30" selection-start-line="1297" selection-start-column="30" selection-end-line="1297" selection-end-column="30" />
+            <state vertical-scroll-proportion="-11.076923" vertical-offset="10557" max-vertical-offset="20205">
+              <caret line="723" column="11" selection-start-line="723" selection-start-column="11" selection-end-line="723" selection-end-column="11" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restlist.jade" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/restlist.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47741935" vertical-offset="575" max-vertical-offset="1350">
+              <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+              <folding>
+                <marker date="1398813103000" expanded="true" signature="1238:1539" placeholder="{...}" />
+                <marker date="1398813103000" expanded="true" signature="1305:1386" placeholder="{...}" />
+                <marker date="1398813103000" expanded="true" signature="1444:1523" placeholder="{...}" />
+                <marker date="1398813103000" expanded="true" signature="3771:3999" placeholder="{...}" />
+                <marker date="1398813103000" expanded="true" signature="3859:3979" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,17 +82,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newrestaurant.jade" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="restedit.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/restedit.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.68" vertical-offset="1188" max-vertical-offset="2040">
+              <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+              <folding>
+                <marker date="1398795030000" expanded="true" signature="6106:6673" placeholder="{...}" />
+                <marker date="1398795030000" expanded="true" signature="6173:6250" placeholder="{...}" />
+                <marker date="1398795030000" expanded="true" signature="6308:6383" placeholder="{...}" />
+                <marker date="1398795030000" expanded="true" signature="6451:6528" placeholder="{...}" />
+                <marker date="1398795030000" expanded="true" signature="6586:6661" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newrestaurant.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/newrestaurant.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5822785" vertical-offset="670" max-vertical-offset="1065">
-              <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+            <state vertical-scroll-proportion="2.4" vertical-offset="315" max-vertical-offset="1065">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
               <folding>
                 <marker date="1398796181000" expanded="true" signature="1793:2412" placeholder="{...}" />
                 <marker date="1398796181000" expanded="true" signature="1864:1949" placeholder="{...}" />
                 <marker date="1398796181000" expanded="true" signature="2011:2094" placeholder="{...}" />
                 <marker date="1398796181000" expanded="true" signature="2166:2251" placeholder="{...}" />
                 <marker date="1398796181000" expanded="true" signature="2313:2396" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="neworder.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/neworder.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="10.6" vertical-offset="880" max-vertical-offset="1455">
+              <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+              <folding>
+                <marker date="1398794971000" expanded="true" signature="1851:2470" placeholder="{...}" />
+                <marker date="1398794971000" expanded="true" signature="1922:2007" placeholder="{...}" />
+                <marker date="1398794971000" expanded="true" signature="2069:2152" placeholder="{...}" />
+                <marker date="1398794971000" expanded="true" signature="2224:2309" placeholder="{...}" />
+                <marker date="1398794971000" expanded="true" signature="2371:2454" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -98,7 +146,6 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/adminOrderSubmit.jade" />
         <option value="$PROJECT_DIR$/views/body.jade" />
         <option value="$PROJECT_DIR$/views/greeting.jade" />
@@ -111,20 +158,21 @@
         <option value="$PROJECT_DIR$/views/orderhistory.jade" />
         <option value="$PROJECT_DIR$/views/orderhistory2.jade" />
         <option value="$PROJECT_DIR$/views/restedit.jade" />
-        <option value="$PROJECT_DIR$/views/restlist.jade" />
         <option value="$PROJECT_DIR$/views/restlist2.jade" />
         <option value="$PROJECT_DIR$/views/template.jade" />
         <option value="$PROJECT_DIR$/views/userlist.jade" />
         <option value="$PROJECT_DIR$/views/login.jade" />
         <option value="$PROJECT_DIR$/views/newrestaurant.jade" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/restlist.jade" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2263" />
-    <option name="y" value="92" />
+    <option name="x" value="2268" />
+    <option name="y" value="29" />
     <option name="width" value="1057" />
-    <option name="height" value="778" />
+    <option name="height" value="954" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -281,11 +329,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2263" y="92" width="1057" height="778" extended-state="0" />
+    <frame x="2268" y="29" width="1057" height="954" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32994187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -550,20 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/neworder.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79746836" vertical-offset="300" max-vertical-offset="1455">
-          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
-          <folding>
-            <marker date="1398794971000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398794971000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398794971000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398794971000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398794971000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/newuser.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="433">
@@ -608,34 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/restedit.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75949365" vertical-offset="1230" max-vertical-offset="2040">
-          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
-          <folding>
-            <marker date="1398795030000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795030000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795030000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795030000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795030000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/restlist.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49367088" vertical-offset="210" max-vertical-offset="1350">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-          <folding>
-            <marker date="1398795041000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795041000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795041000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795041000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1398795041000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/restlist2.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6835443" vertical-offset="135" max-vertical-offset="1365">
@@ -647,14 +653,6 @@
             <marker date="1398795047000" expanded="true" signature="-1:-1" placeholder="{...}" />
             <marker date="1398795047000" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8846154" vertical-offset="19354" max-vertical-offset="20280">
-          <caret line="1297" column="30" selection-start-line="1297" selection-start-column="30" selection-end-line="1297" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -690,16 +688,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/restedit.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.68" vertical-offset="1188" max-vertical-offset="2040">
+          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+          <folding>
+            <marker date="1398795030000" expanded="true" signature="6106:6673" placeholder="{...}" />
+            <marker date="1398795030000" expanded="true" signature="6173:6250" placeholder="{...}" />
+            <marker date="1398795030000" expanded="true" signature="6308:6383" placeholder="{...}" />
+            <marker date="1398795030000" expanded="true" signature="6451:6528" placeholder="{...}" />
+            <marker date="1398795030000" expanded="true" signature="6586:6661" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/newrestaurant.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5822785" vertical-offset="670" max-vertical-offset="1065">
-          <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+        <state vertical-scroll-proportion="2.4" vertical-offset="315" max-vertical-offset="1065">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
           <folding>
             <marker date="1398796181000" expanded="true" signature="1793:2412" placeholder="{...}" />
             <marker date="1398796181000" expanded="true" signature="1864:1949" placeholder="{...}" />
             <marker date="1398796181000" expanded="true" signature="2011:2094" placeholder="{...}" />
             <marker date="1398796181000" expanded="true" signature="2166:2251" placeholder="{...}" />
             <marker date="1398796181000" expanded="true" signature="2313:2396" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/neworder.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.6" vertical-offset="880" max-vertical-offset="1455">
+          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+          <folding>
+            <marker date="1398794971000" expanded="true" signature="1851:2470" placeholder="{...}" />
+            <marker date="1398794971000" expanded="true" signature="1922:2007" placeholder="{...}" />
+            <marker date="1398794971000" expanded="true" signature="2069:2152" placeholder="{...}" />
+            <marker date="1398794971000" expanded="true" signature="2224:2309" placeholder="{...}" />
+            <marker date="1398794971000" expanded="true" signature="2371:2454" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.076923" vertical-offset="10557" max-vertical-offset="20205">
+          <caret line="723" column="11" selection-start-line="723" selection-start-column="11" selection-end-line="723" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/restlist.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47741935" vertical-offset="575" max-vertical-offset="1350">
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
+          <folding>
+            <marker date="1398813103000" expanded="true" signature="1238:1539" placeholder="{...}" />
+            <marker date="1398813103000" expanded="true" signature="1305:1386" placeholder="{...}" />
+            <marker date="1398813103000" expanded="true" signature="1444:1523" placeholder="{...}" />
+            <marker date="1398813103000" expanded="true" signature="3771:3999" placeholder="{...}" />
+            <marker date="1398813103000" expanded="true" signature="3859:3979" placeholder="{...}" />
           </folding>
         </state>
       </provider>

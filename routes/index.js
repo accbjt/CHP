@@ -5,17 +5,12 @@ var restaurantVotes = Array();
 var restaurantCounts = new Array();
 var indexOfRestaurant= 0;
 var restaurantUsers = [];
-var restaurantNames = ['Falafel Corner','zPizza','Eastern Winds','King Taco'];
+var restaurantNames = ['Falafel Corner','zPizza','Eastern Winds','Extreme Pita'];
 var menuItems = Array();
 var menuItemsForCurrentOrder = '';
 var sessionID;
 
 var voted = 0, maxVotes = restaurantNames.length;
-
-var users = [["t", "melvin", "hello@hello.com", 'admin', 'offline'],
-["Peter Kim", "hamburger", "peter@kim.com", 'notadmin', 'offline']];
-
-
 
 //GET Login page
 router.get('/', function(req, res) {
@@ -84,7 +79,7 @@ router.post('/', function(req, res) {
             if(doc.admin === "1") {
 
                 sessionID = Math.random() * 100;
-                login.insert ({ "id" : sessionID, admin: "yes"});
+                login.insert ({ "id" : sessionID, admin: "yes", "username" : username });
                 res.redirect('greetingadmin');
             }
             else {
@@ -193,7 +188,7 @@ router.post('/updateuser', function(req, res) {
 
     collection.update (
         { username: userName },
-        {
+            {
             username: userName,
             email: userEmail,
             password: userPassword,
