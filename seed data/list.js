@@ -11,10 +11,9 @@ db.restaurantcollection.insert({
 		{"item" : "Hawaiian"},
 		{"item" : "Tex-Mex Burger"},
 		{"item" : "Bacon Cheddar Burger"},
-        {"item" : "Beef, Chicken or Veggie Patty: Whole Wheat Bun Available"},
         {"item" : "6 Buffalo, BBQ or Teriyaki Wings"},
-		{"item" : "Pepperoni pizza"},
-		{"item" : "Cheese pizza"}
+		{"item" : "12\"Pepperoni pizza"},
+		{"item" : "12\"Cheese pizza"}
 	    ]});
 
 db.restaurantcollection.insert({
