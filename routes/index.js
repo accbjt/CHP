@@ -849,7 +849,7 @@ router.post('/NewItemForCurrentOrder', function(req, res) {
             console.log('restaurantname = ' + restaurantNames[highestVote]);
               res.location("restaurantlist");
               // resetVotingArrays();
-              res.redirect("restaurantlist/0");
+              res.redirect("/greeting");
         }
     })
     // var dbstatscount = db.collection.stats.count();
