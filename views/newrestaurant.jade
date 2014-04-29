@@ -56,11 +56,11 @@ block content
             });
 
     h1= title
-    form#formAddRest(name="addrestaurant",method="post",action="/addrestaurant")
-        input#inputRestaurantName(type="text", placeholder="restname", name="restname")
-        input#inputRestPhone(type="tel", placeholder="restphone", name="restphone")
-        button#btnSubmit(type="submit") submit
+    form#formAddRest(name="addrestaurant",method="post",action="/addrestaurant", style="margin=10px;")
+        input#inputRestaurantName(type="text", placeholder="Restaurant Name", name="restname")
+        input#inputRestPhone(type="tel", placeholder="Restaurant Phone", name="restphone")
+        button#btnSubmit(type="submit") Submit
 
-    form#formAddMenuItems(name="addmenuitems",method="post",action="/addmenuitems")
+    form#formAddMenuItems(name="addmenuitems",method="post",action="/addmenuitems", style="margin=10px;")
         input#inputItemName(type="text", placeholder="Item Name", name="itemname")
-        button#btnSubmit(type="submit") submit
+        button#btnSubmit(type="submit") Submit
