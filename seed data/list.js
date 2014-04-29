@@ -79,7 +79,7 @@ db.restaurantcollection.insert({
 		{"item" : "Club"},
 		{"item" : "Gyro"},
 		{"item" : "Tuna"},
-		{"item" : "Chiptole Steak"}
+		{"item" : "Chiptole Steak"},
         {"item" : "Philly Steak"},
         {"item" : "The Chief"},
         {"item" : "Chick-Chick Boom!"},
@@ -87,7 +87,7 @@ db.restaurantcollection.insert({
         {"item" : "Chicken Shawarma"},
         {"item" : "Bourbon Chipotle"},
         {"item" : "Chicken Caesar"},
-        {"item" : "Chicken Souvlaki"}
+        {"item" : "Chicken Souvlaki"},
         {"item" : "Buffalo Chicken"},
         {"item" : "Fiesta Mexicana"},
         {"item" : "Thai Beef"}
