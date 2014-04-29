@@ -1,0 +1,22 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+}
+ul {
+    list-style-type: none;
+}
+#userlist {
+    height: 60px;
+    margin: 15px;
+    border: 1px solid grey;
+}
+#loginform {
+    width:25%;
+    margin-right: 37%;
+    margin-left: 37%;
+}
