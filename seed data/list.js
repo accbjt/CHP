@@ -2,6 +2,7 @@ db.restaurantcollection.remove({});
 
 db.restaurantcollection.insert({
 	"restaurant" : "Falafel Corner",
+    "phonenumber" : ["510-252-1577"],
 	"restaurantitem" : [
 		{"item" : "Chicken Shish Kabob"},
 		{"item" : "Avocado Burger"},
@@ -15,6 +16,7 @@ db.restaurantcollection.insert({
 
 db.restaurantcollection.insert({
 	"restaurant" : "zPizza",
+    "phonenumber" : ["510-360-9900"],
 	"restaurantitem" : [
 		{"item" : "Penne with Meatballs"},
 		{"item" : "Calzone"},
@@ -29,6 +31,7 @@ db.restaurantcollection.insert({
 
 db.restaurantcollection.insert({
 	"restaurant" : "Eastern Winds",
+    "phonenumber" : ["510-651-6678"],
 	"restaurantitem" : [
 		{"item" : "Orange Chicken"},
 		{"item" : "Sesame Chicken"},
@@ -41,6 +44,7 @@ db.restaurantcollection.insert({
 
 db.restaurantcollection.insert({
 	"restaurant" : "King Taco",
+    "phonenumber" : ["510-490-7482"],
 	"restaurantitem" : [
 		{"item" : "Carne Asada"},
 		{"item" : "Carnitas"},

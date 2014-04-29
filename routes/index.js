@@ -1109,6 +1109,7 @@ router.post('/removerestaurant', function(req, res) {
 /* GET restaurant list CLIENT */
 router.get('/restaurantlist/:highestVote', function(req, res) {
     var highestVote = req.params.highestVote;
+
     console.log("highestVote in parameter = " + highestVote);
     var db = req.db;
     var collection = db.get('restaurantcollection');
@@ -1116,7 +1117,7 @@ router.get('/restaurantlist/:highestVote', function(req, res) {
 
         res.render('restlist', {
             "restlist" : docs,
-            "highestVote":highestVote
+            "highestVote":highestVote,
         });
     });
 });
