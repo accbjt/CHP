@@ -48,13 +48,25 @@ db.restaurantcollection.insert({
 db.restaurantcollection.insert({
 	"restaurant" : "Eastern Winds",
 	"restaurantitem" : [
-		{"item" : "Orange Chicken"},
-		{"item" : "Sesame Chicken"},
-		{"item" : "Chicken and Broc"},
-		{"item" : "Mongolian Beef"},
-		{"item" : "Kung Pao"},
-		{"item" : "Prawns with Broc"},
-		{"item" : "Tofu Prawns"}
+        {"item" : "Almond Chicken"},
+        {"item" : "Kung Pao Beef or Chicken"},
+        {"item" : "Cashew Nut Chicken"},
+        {"item" : "Sesame Chicken"},
+		{"item" : "String Bean Chicken or Beef"},
+        {"item" : "Chicken with Mixed Veggies"},
+        {"item" : "Sweet and Sour Chicken or Pork"},
+        {"item" : "Broccoli Beef or Chicken"},
+        {"item" : "Szechuan Beef or Chicken"},
+        {"item" : "Mongolian Beef or Chicken"},
+        {"item" : "Garlic Pork in Szechuan Sauce"},
+        {"item" : "Bean Curd in Spicy Sauce"},
+        {"item" : "Mixed Fresh Veggies"},
+        {"item" : "Eggplant in Szechuan Sauce"},
+        {"item" : "Prawns with Black Bean Sauce"},
+        {"item" : "Prawns with Broccoli"},
+		{"item" : "Kung Pao Prawns"},
+		{"item" : "Lemon Chicken"},
+        {"item" : "Orange Chicken"}
 	    ]});
 
 db.restaurantcollection.insert({
