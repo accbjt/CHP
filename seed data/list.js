@@ -73,12 +73,8 @@ db.restaurantcollection.insert({
 	    ]});
 
 db.restaurantcollection.insert({
-<<<<<<< HEAD
-	"restaurant" : "King Taco",
-    "phonenumber" : ["510-490-7482"],
-=======
 	"restaurant" : "Extreme Pita",
->>>>>>> fce09428db9ebe7d0d0c31515174011d4de1d05a
+    "phonenumber" : ["510-490-7482"],
 	"restaurantitem" : [
 		{"item" : "Grilled Chicken"},
 		{"item" : "Rustic Italian"},

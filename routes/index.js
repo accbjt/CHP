@@ -1117,7 +1117,7 @@ router.get('/restaurantlist/:highestVote', function(req, res) {
 
         res.render('restlist', {
             "restlist" : docs,
-            "highestVote":highestVote,
+            "highestVote":highestVote
         });
     });
 });
