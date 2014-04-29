@@ -40,15 +40,15 @@ db.restaurantcollection.insert({
 	    ]});
 
 db.restaurantcollection.insert({
-	"restaurant" : "King Taco",
+	"restaurant" : "Extreme Pita",
 	"restaurantitem" : [
-		{"item" : "Carne Asada"},
-		{"item" : "Carnitas"},
-		{"item" : "Al Pastor"},
-		{"item" : "Lengua"},
-		{"item" : "Cabeza"},
-		{"item" : "Tripas"},
-		{"item" : "Molleja"},
-		{"item" : "Bean and Cheese"}
+		{"item" : "Grilled Chicken"},
+		{"item" : "Rustic Italian"},
+		{"item" : "Falafel"},
+		{"item" : "Veggie"},
+		{"item" : "Club"},
+		{"item" : "Gyro"},
+		{"item" : "Tuna"},
+		{"item" : "Chiptole Steak"}
 	]
 });
