@@ -15,6 +15,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+const
+clientSessions = require("client-sessions");
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -25,6 +28,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(clientSessions({
+  secret: 'taylorliveswithcows',
+  duration: 24 * 60 * 60 * 1000,
+  activeDuration: 1000 * 60 * 5
+}));
+
+
+// //client-session START
+// app.use(function(req, res, next) {
+//   if (req.mySession.seenyou) {
+//     res.setHeader('X-Seen-You', 'true');
+//   } else {
+//     // setting a property will automatically cause a Set-Cookie response
+//     // to be sent
+//     req.mySession.seenyou = true;
+//     res.setHeader('X-Seen-You', 'false');
+//   }
+// });
+// //client-session END
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
@@ -65,7 +87,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var port = Number(process.env.PORT || 3000);
+var port = Number(process.env.PORT || 4000);
 app.listen(port, function() {
     console.log("Listening on " + port);
 });

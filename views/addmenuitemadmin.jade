@@ -2,10 +2,8 @@ extends layout
 
 block content
 
-    link(rel='stylesheet', href='css/p1.css')
-
     body
-      .navbar.navbar-default.navbar-fixed-top(role='navigation')
+        .navbar.navbar-default.navbar-fixed-top(role='navigation')
             .container
                 .navbar-header
                     button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
@@ -56,40 +54,29 @@ block content
                 });
             });
 
-        .container
-            .row.clearfix
-                form#listbox.column.col-xs-4(method="post", action="/orderform")
-                    h2 Order List
-                    if(newOrder != "")
-                        - var item = newOrder[0]
-                            input(name='restaurantName', readonly, value='#{item.restname}', style="display:none;")
-                            h4= item.restname
-                            h5= item.phonenumber
-                    if(newOrder != "")
-                        - each item, i in newOrder
-                            .line-separator
-                            //- label
-                            //- input#checkbox(type='checkbox' name='orderlist')
-                            //- #menulist
-                            //- span Name: #{item.username}
-                            span Menu item: #{item.menuitem}
-                            span Special Req: #{item.specialreq}
-                        //- button#remove.btn.btn-primary(type='button', action='/removeorders') Remove Selected Orders
-                        //- button.btn.btn-primary(type='button') Clear Votes
-                    a.btn.btn-primary(href='/addmenuitemadmin/0') Add Menu Item
-                    .row.clearfix
-                        .column.col-xs-12
-                            button#submit.btn.btn-success(type='submit') Archive Order
+        .col-sm-6
+        each rest, i in restlist[highestVote].restaurantitem
+            li #{rest.item}
 
+            //if i != highestVote
+            //    div(style="height:20px;")
+            //        input(type='radio', name='checkedRestaurant', value='#{rest.restaurant}')
+            //        |       #{rest.restaurantitem[i].item}
+            br
 
+        form#formmenuItemSubmit(name="submitteditem",method="post",action="/NewItemForCurrentOrderAdmin")
+            input(type='text', class='selecteditem commentOrder', name='selecteditem', value='')
+            input(type="text", class="form-control commentOrder", name='specialRequest', id="userComments" ,placeholder="Special Request")
+            input(type="hidden", name="highestVote", value="#{highestVote}")
+            - var restphone = restlist[highestVote]
+            input(type="hidden", name="restphone", value="#{restphone.phonenumber[0]}")
+            button(type='submit', id='submititembtn') submit2
 
-
-            //- .row.clearfix
-            //-     .column.col-xs-8
-            //-         - each rest, i in restlist
-            //-             li= rest
-
-            //-     form#formmenuItemSubmit(name="submitteditem",method="post",action="/NewItemForCurrentOrderAdmin")
-            //-         input(type='text', class='selecteditem commentOrder', name='selecteditem', value='')
-            //-         input(type="text", class="form-control commentOrder", name='specialRequest', id="userComments" ,placeholder="Special Request")
-            //-         button(type='submit', id='submititembtn') submit2
+        script.
+                $(document).ready(function(){
+                var selectedItem = '';
+                $('li').on('click', function() {
+                selectedItem = $(this).text();
+                $('.selecteditem').val(selectedItem);
+                });
+                });
