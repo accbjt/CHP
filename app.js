@@ -88,7 +88,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var port = Number(process.env.PORT || 4000);
+var port = Number(process.env.PORT || 3000);
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
