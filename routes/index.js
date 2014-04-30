@@ -1117,10 +1117,11 @@ router.get('/restaurantlist/:highestVote', function(req, res) {
 
         res.render('restlist', {
             "restlist" : docs,
-            "highestVote":highestVote
+            "highestVote":highestVote,
         });
     });
 });
+
 
 /* GET restaurant list ADMIN */
 router.get('/adminOrderSubmit', function(req, res) {
@@ -1175,6 +1176,7 @@ router.post('/selectrestaurant', function(req, res) {
                 res.redirect("restaurantlist/"+highestVote);
             }
         });
+
     restaurant.find({},{},function(e,docs){
             restlist: docs
 

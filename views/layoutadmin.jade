@@ -27,7 +27,7 @@ html
                         a(href='/userlist') Account Management
 
                     li.dropdown.one
-                        a.dropdown-toggle.index.one(data-toggle='dropdown')
+                        a.dropdown-toggle.index.one(style="cursor:pointer", data-toggle='dropdown')
                             | Assignments
                             span.caret
                         ul.dropdown-menu.index.one(role='menu')
@@ -36,7 +36,7 @@ html
                             li
                                 a(href='/ph2sp1admin') Phase 2
                     li.dropdown.two
-                        a.dropdown-toggle.index.two(data-toggle='dropdown')
+                        a.dropdown-toggle.index.two(style="cursor:pointer", data-toggle='dropdown')
                             | Restaurants
                             span.caret
                         ul.dropdown-menu.index.two(role='menu')
@@ -48,14 +48,14 @@ html
                                 a(href='/newrestaurant') Add New Restaurant
         script(type='text/javascript').
             $(document).ready(function() {
-                $(".dropdown-toggle.index.one").mouseenter(function(){
+                $(".dropdown-toggle.index.one").click(function(){
                     $(".dropdown-menu.index.one").slideDown(600);
                 });
 
                 $("li.dropdown.one").mouseleave(function(){
                     $(".dropdown-menu.index.one").slideUp(600);
                 });
-                $(".dropdown-toggle.index.two").mouseenter(function(){
+                $(".dropdown-toggle.index.two").click(function(){
                     $(".dropdown-menu.index.two").slideDown(600);
                 });
 
