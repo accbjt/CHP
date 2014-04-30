@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 extends layout
 
 block content
@@ -12,10 +11,10 @@ block content
                         span.icon-bar
                         span.icon-bar
                         span.icon-bar
-                    a.navbar-brand(href='greeting') Coding House
+                    a.navbar-brand(href='/greeting') Coding House
                 ul.nav.navbar-nav.navbar-right
                     li.dropdown
-                        a.dropdown-toggle.index(data-toggle='dropdown', href='/assignments')
+                        a.dropdown-toggle.index(data-toggle='dropdown', href='#')
                             | Assignments
                             span.caret
                         ul.dropdown-menu.index(role='menu')
@@ -24,10 +23,10 @@ block content
                             li
                                 a(href='/ph2sp1') Phase 2
                     li
-                        a(href='/restaurantlist') Restaurant
+                        a(href='/restaurantlist/0') Restaurant
         script(type='text/javascript').
             $(document).ready(function() {
-                $(".dropdown-toggle.index").mouseenter(function(){
+                $(".dropdown-toggle.index").click(function(){
                     $(".dropdown-menu.index").slideDown(600);
                 });
 
@@ -87,7 +86,7 @@ block content
                 $('.selecteditem').val(selectedItem);
                 });
                 });
-=======
+
 extends layout
 
 block content
@@ -171,4 +170,4 @@ block content
                 $('.selecteditem').val(selectedItem);
                 });
                 });
->>>>>>> 260eb6fa22d793919bf8a3c5877d9020c26fc592
+

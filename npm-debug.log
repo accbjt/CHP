@@ -19,11 +19,7 @@
 10 error There is likely additional logging output above.
 11 error System Darwin 13.1.0
 12 error command "node" "/usr/local/bin/npm" "start"
-<<<<<<< HEAD
-13 error cwd /Users/peterkim/Desktop/CHP
-=======
 13 error cwd /Users/Master/Desktop/coding_house/day17/CHP
->>>>>>> 260eb6fa22d793919bf8a3c5877d9020c26fc592
 14 error node -v v0.10.26
 15 error npm -v 1.4.3
 16 error code ELIFECYCLE

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var express = require('express');
 var router = express.Router();
 
@@ -1413,7 +1412,6 @@ router.post('/addTaskSave11', function(req, res) {
 });
 
 module.exports = router;
-=======
 var express = require('express');
 var router = express.Router();
 
@@ -2533,7 +2531,7 @@ router.get('/restaurantlist/:highestVote', function(req, res) {
 
         res.render('restlist', {
             "restlist" : docs,
-            "highestVote":highestVote,
+            "highestVote":highestVote
         });
     });
 });
@@ -2763,4 +2761,3 @@ router.post('/addTaskSave11', function(req, res) {
 });
 
 module.exports = router;
->>>>>>> 260eb6fa22d793919bf8a3c5877d9020c26fc592
