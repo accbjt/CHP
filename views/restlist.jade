@@ -59,7 +59,7 @@ block content
 
         .col-sm-6
             each rest, i in restlist[highestVote].restaurantitem
-                li #{rest.item}
+                li(style="cursor:pointer") #{rest.item}
 
                 //if i != highestVote
                 //    div(style="height:20px;")
@@ -77,90 +77,6 @@ block content
                     button(type='submit', disabled='disabled', id='submititembtn') submit2
                 if disableditem == 0
                     button(type='submit', id='submititembtn') submit2
-
-        script.
-                $(document).ready(function(){
-                var selectedItem = '';
-                $('li').on('click', function() {
-                selectedItem = $(this).text();
-                $('.selecteditem').val(selectedItem);
-                });
-                });
-
-extends layout
-
-block content
-
-    body
-        .navbar.navbar-default.navbar-fixed-top(role='navigation')
-            .container
-                .navbar-header
-                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    a.navbar-brand(href='/greeting') Coding House
-                ul.nav.navbar-nav.navbar-right
-                    li.dropdown
-                        a.dropdown-toggle.index(style="cursor:pointer", data-toggle='dropdown')
-                            | Assignments
-                            span.caret
-                        ul.dropdown-menu.index(role='menu')
-                            li
-                                a(href='/ph1sp1') Phase 1
-                            li
-                                a(href='/ph2sp1') Phase 2
-                    li
-                        a(href='/restaurantlist/0') Restaurant
-        script(type='text/javascript').
-            $(document).ready(function() {
-                $(".dropdown-toggle.index").click(function(){
-                    $(".dropdown-menu.index").slideDown(600);
-                });
-
-                $("li.dropdown").mouseleave(function(){
-                    $(".dropdown-menu.index").slideUp(600);
-                });
-            });
-        h1.
-            Restaurant List
-        div(class="col-sm-6", style="height:500px;")
-            form#formSelectRest(name="selectrestaurant",method="post",action="/selectrestaurant")
-                each rest, i in restlist
-                    if i == voted
-                        div(style="height:20px;")
-                            input(type='radio', name='rest[name]', value='#{rest.restaurant}', checked=true)
-                            |       #{rest.restaurant}
-                    if i != voted
-                        div(style="height:20px;")
-                            input(type='radio', name='rest[name]', value='#{rest.restaurant}')
-                            |       #{rest.restaurant}
-                    br
-
-                button(style="margin-bottom:10px;" type='submit', id='disable',name='') submit1
-
-            //- form#formWinningRest(name="winningrestaurant",method="get",action="/winningrestaurant")
-                //- button(type='submit', id='showresultsbtn') Show Results
-                //- input(type='text', id='winningrestaurant',name='winningrestaurant', value='#{voted} votes')
-
-        .col-sm-6
-            each rest, i in restlist[highestVote].restaurantitem
-                li(style="cursor:pointer") #{rest.item}
-
-                //if i != highestVote
-                //    div(style="height:20px;")
-                //        input(type='radio', name='checkedRestaurant', value='#{rest.restaurant}')
-                //        |       #{rest.restaurantitem[i].item}
-                br
-
-            form#formmenuItemSubmit(name="submitteditem",method="post",action="/NewItemForCurrentOrder")
-                input(type='text', class='selecteditem commentOrder', name='selecteditem', value='' disabled)
-                input(type="text", class="form-control commentOrder", name='specialRequest', id="userComments" ,placeholder="Special Request")
-                input(type="hidden", name="highestVote", value="#{highestVote}")
-                - var restphone = restlist[highestVote]
-                input(type="hidden", name="restphone", value="#{restphone.phonenumber[0]}")
-                button(type='submit', id='submititembtn') submit2
 
         script.
                 $(document).ready(function(){

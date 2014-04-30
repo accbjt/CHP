@@ -20,7 +20,7 @@ block content
                         a(href='/userlist') Account Management
 
                     li.dropdown.one
-                        a.dropdown-toggle.index.one(data-toggle='dropdown')
+                        a.dropdown-toggle.index.one(data-toggle='dropdown', style="cursor:pointer")
                             | Assignments
                             span.caret
                         ul.dropdown-menu.index.one(role='menu')
@@ -29,102 +29,7 @@ block content
                             li
                                 a(href='/ph2sp1admin') Phase 2
                     li.dropdown.two
-                        a.dropdown-toggle.index.two(data-toggle='dropdown')
-                            | Restaurants
-                            span.caret
-                        ul.dropdown-menu.index.two(role='menu')
-                            li
-                                a(href='/neworder') New Order
-                            li
-                                a(href='/orderhistory') Order History
-                            li
-                                a(href='/newrestaurant') Add New Restaurant
-        script(type='text/javascript').
-            $(document).ready(function() {
-                $(".dropdown-toggle.index.one").mouseenter(function(){
-                    $(".dropdown-menu.index.one").slideDown(600);
-                });
-
-                $("li.dropdown.one").click(function(){
-                    $(".dropdown-menu.index.one").slideUp(600);
-                });
-                $(".dropdown-toggle.index.two").click(function(){
-                    $(".dropdown-menu.index.two").slideDown(600);
-                });
-
-                $("li.dropdown.two").mouseleave(function(){
-                    $(".dropdown-menu.index.two").slideUp(600);
-                });
-            });
-
-        .container
-            .row.clearfix
-                form#listbox.column.col-xs-4(method="post", action="/orderform")
-                    h2 Order List
-                    if(newOrder != "")
-                        - var item = newOrder[0]
-                            input(name='restaurantName', readonly, value='#{item.restname}', style="display:none;")
-                            h4= item.restname
-                            h5= item.phonenumber
-                    if(newOrder != "")
-                        - each item, i in newOrder
-                            .line-separator
-                            //- label
-                            //- input#checkbox(type='checkbox' name='orderlist')
-                            //- #menulist
-                            //- span Name: #{item.username}
-                            span Menu item: #{item.menuitem}
-                            span Special Req: #{item.specialreq}
-                        //- button#remove.btn.btn-primary(type='button', action='/removeorders') Remove Selected Orders
-                        //- button.btn.btn-primary(type='button') Clear Votes
-                    a.btn.btn-primary(href='/addmenuitemadmin/0') Add Menu Item
-                    .row.clearfix
-                        .column.col-xs-12
-                            button#submit.btn.btn-success(type='submit') Archive Order
-
-
-
-
-            //- .row.clearfix
-            //-     .column.col-xs-8
-            //-         - each rest, i in restlist
-            //-             li= rest
-
-            //-     form#formmenuItemSubmit(name="submitteditem",method="post",action="/NewItemForCurrentOrderAdmin")
-            //-         input(type='text', class='selecteditem commentOrder', name='selecteditem', value='')
-            //-         input(type="text", class="form-control commentOrder", name='specialRequest', id="userComments" ,placeholder="Special Request")
-=======
-extends layout
-
-block content
-
-    link(rel='stylesheet', href='css/p1.css')
-
-    body
-      .navbar.navbar-default.navbar-fixed-top(role='navigation')
-            .container
-                .navbar-header
-                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    a.navbar-brand(href='/greetingadmin') Coding House
-                ul.nav.navbar-nav.navbar-right
-                    li
-                        a(href='/userlist') Account Management
-
-                    li.dropdown.one
-                        a.dropdown-toggle.index.one(style="cursor:pointer", data-toggle='dropdown')
-                            | Assignments
-                            span.caret
-                        ul.dropdown-menu.index.one(role='menu')
-                            li
-                                a(href='/ph1sp1admin') Phase 1
-                            li
-                                a(href='/ph2sp1admin') Phase 2
-                    li.dropdown.two
-                        a.dropdown-toggle.index.two(style="cursor:pointer", data-toggle='dropdown')
+                        a.dropdown-toggle.index.two(data-toggle='dropdown', style="cursor:pointer")
                             | Restaurants
                             span.caret
                         ul.dropdown-menu.index.two(role='menu')
@@ -172,9 +77,14 @@ block content
                             span Special Req: #{item.specialreq}
                         //- button#remove.btn.btn-primary(type='button', action='/removeorders') Remove Selected Orders
                         //- button.btn.btn-primary(type='button') Clear Votes
+                    a.btn.btn-primary(href='/addmenuitemadmin/0') Add Menu Item
                     .row.clearfix
                         .column.col-xs-12
                             button#submit.btn.btn-success(type='submit') Archive Order
+
+
+
+
             //- .row.clearfix
             //-     .column.col-xs-8
             //-         - each rest, i in restlist
@@ -183,4 +93,3 @@ block content
             //-     form#formmenuItemSubmit(name="submitteditem",method="post",action="/NewItemForCurrentOrderAdmin")
             //-         input(type='text', class='selecteditem commentOrder', name='selecteditem', value='')
             //-         input(type="text", class="form-control commentOrder", name='specialRequest', id="userComments" ,placeholder="Special Request")
-            //-         button(type='submit', id='submititembtn') submit2
