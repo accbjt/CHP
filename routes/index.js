@@ -993,13 +993,12 @@ router.post('/NewItemForCurrentOrderAdmin', function(req, res) {
     var collection = db.get('ordercollection');
 
     collection.insert(
-    {restname: restaurantNames[highestVote], menuitem: selectedItem, specialreq: specialRequest, phonenumber: restphone},
+    {restname: restaurantNames[globalHighestVote], menuitem: selectedItem, specialreq: specialRequest, phonenumber: restphone},
     function (err, doc) {
         if(err) {
             res.send("There was a problem submitting your menu item.");
         }
         else {
-            console.log('restaurantname = ' + restaurantNames[highestVote]);
               res.location("neworder");
               // resetVotingArrays();
               res.redirect("neworder");
