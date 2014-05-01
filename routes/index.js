@@ -1271,7 +1271,7 @@ function getHighestVote(votedRestaurant){
         }
     }
 
-//    var highestVote = -1;
+    var globalHighestVote = -1;
 
     for(var i=0; i<restaurantNames.length; i++) {
         console.log("restaurantvotes[i] = " + restaurantVotes[i]);
