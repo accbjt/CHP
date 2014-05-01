@@ -85,6 +85,7 @@ router.post('/', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
     console.log("post for login username = " + username);
+    console.log ("Current Highest vote = " + highestVote);
 
     //Set collection
     var collection = db.get('usercollection');
