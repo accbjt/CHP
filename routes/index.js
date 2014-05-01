@@ -5,6 +5,8 @@ var restaurantVotes = Array();
 var restaurantCounts = new Array();
 var indexOfRestaurant= 0;
 var restaurantUsers = [];
+var globalHighestVote = 0;
+
 // var restaurantNames = new Array();
 var restaurantNames = ['Falafel Corner','zPizza','Eastern Winds','Extreme Pita'];
 var menuItems = Array();
@@ -85,7 +87,7 @@ router.post('/', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
     console.log("post for login username = " + username);
-    console.log ("Current Highest vote = " + highestVote);
+//    console.log ("Current Highest vote = " + highestVote);
 
     //Set collection
     var collection = db.get('usercollection');
@@ -856,9 +858,10 @@ router.post('/NewItemForCurrentOrder', function(req, res) {
     // Set our internal DB variable
     var db = req.db;
     var selectedItem = req.body.selecteditem;
-    highestVote = req.body.highestVote;
+    var highestVote = req.body.highestVote;
     var restphone = req.body.restphone;
-    console.log("local highestVote = " + highestVote);
+//    console.log("local highestVote = " + highestVote);
+    console.log("1globalhighestVote = " + globalHighestVote);
 
     var specialRequest = req.body.specialRequest;
     var selectedRestaurant = req.body.specialRequest;
@@ -876,7 +879,7 @@ router.post('/NewItemForCurrentOrder', function(req, res) {
             console.log('restaurantname = ' + restaurantNames[highestVote]);
               res.location("restaurantlist");
               // resetVotingArrays();
-              res.redirect("restaurantlist/0");
+              res.redirect("restaurantlist/"+ globalHighestVote);
         }
     })
 
@@ -981,7 +984,7 @@ router.post('/NewItemForCurrentOrderAdmin', function(req, res) {
     var db = req.db;
     var selectedItem = req.body.selecteditem;
     var restphone = req.body.restphone;
-    console.log("local highestVote for admin = " + highestVote);
+    console.log("Admin 2globalhighestVote = " + globalHighestVote);
 
     var specialRequest = req.body.specialRequest;
     var selectedRestaurant = req.body.specialRequest;
@@ -1140,8 +1143,10 @@ router.post('/removerestaurant', function(req, res) {
 router.get('/restaurantlist/:highestVote', function(req, res) {
     console.log(req.session_state.cookieName + ' logged in.');
 
-    var highestVote = req.params.highestVote;
-    console.log("highestVote in parameter = " + highestVote);
+//    var highestVote = req.params.highestVote;
+//    console.log("highestVote in parameter = " + highestVote);
+//    globalHighestVote = highestVote;
+    console.log("3GlobalhighestVote in parameter = " + globalHighestVote);
 
     // req.session_state.restaurantVoteClickCount += 1;
 
@@ -1151,7 +1156,7 @@ router.get('/restaurantlist/:highestVote', function(req, res) {
 
         res.render('restlist', {
             "restlist" : docs,
-            "highestVote":highestVote,
+            "highestVote":globalHighestVote,
             "disabledvote":req.session_state.restaurantVoteClickCount,
             "disableditem":req.session_state.restaurantItemClickCount
         });
@@ -1165,16 +1170,16 @@ router.get('/addmenuitemadmin', function(req, res) {
     res.redirect("addmenuitemadmin/:highestVote");
 });
 
-/* GET restaurant list CLIENT */
+/* GET restaurant list Admin */
 router.get('/addmenuitemadmin/:highestVote', function(req, res) {
-    console.log("highestVote in parameter for admin = " + highestVote);
+    console.log("4globalhighestVote for admin = " + globalHighestVote);
     var db = req.db;
     var collection = db.get('restaurantcollection');
     collection.find({},{},function(e,docs){
 
         res.render('addmenuitemadmin', {
             "restlist" : docs,
-            "highestVote":highestVote
+            "highestVote":globalHighestVote
         });
     });
 });
@@ -1210,8 +1215,9 @@ router.post('/selectrestaurant', function(req, res) {
     var selectedrestaurant = req.body.rest.name;
 
     // The variable highestVote is the index in the array of restaurants that has the highest vote
-    highestVote = getHighestVote(selectedrestaurant);
-    console.log("returned highest vote index = " + highestVote);
+//    highestVote = getHighestVote(selectedrestaurant);
+    globalHighestVote = getHighestVote(selectedrestaurant);
+    console.log("returned Global highest vote index = " + globalHighestVote);
 
     // Set our collection
     var collection = db.get('votecollection');
@@ -1219,7 +1225,7 @@ router.post('/selectrestaurant', function(req, res) {
 
     // Submit to the DB
     collection.update(
-        { restname: restaurantNames[highestVote] },
+        { restname: restaurantNames[globalHighestVote] },
         { $push: { restaurantvote: {restaurantvote: selectedrestaurant}}},
         function (err, doc) {
             console.log(selectedrestaurant);
@@ -1229,7 +1235,7 @@ router.post('/selectrestaurant', function(req, res) {
             else {
                 res.location("restaurantlist");
 
-                res.redirect("restaurantlist/"+highestVote);
+                res.redirect("restaurantlist/"+globalHighestVote);
             }
         });
     restaurant.find({},{},function(e,docs){
@@ -1265,15 +1271,15 @@ function getHighestVote(votedRestaurant){
         }
     }
 
-    var highestVote = -1;
+//    var highestVote = -1;
 
     for(var i=0; i<restaurantNames.length; i++) {
         console.log("restaurantvotes[i] = " + restaurantVotes[i]);
 
-        if(highestVote < restaurantVotes[i]) {
+        if(globalHighestVote < restaurantVotes[i]) {
             console.log("found higher vote count: " + restaurantVotes[i]);
             console.log("found higher restaurant: " + restaurantNames[i]);
-            highestVote = restaurantVotes[i];
+            globalHighestVote = restaurantVotes[i];
             indexOfRestaurant = i;
         }
     }
@@ -1299,7 +1305,7 @@ router.get('/restaurantlistadmin', function(req, res) {
             collection.find({},{},function(e,docs){
                 res.render('restlistadmin', {
                     "restlistadmin" : docs,
-                    "voted":voted
+                    "voted":globalHighestVote
                 })
             });
         } else {
