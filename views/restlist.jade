@@ -53,8 +53,7 @@ block content
                 if disabledvote == 0
                     button(style="margin-bottom:10px;" type='submit', name='') submit1
                     br
-            form(name="selectrestaurant",method="get",action="/restaurantlist/#{highestVote}")
-                button(style="margin-bottom:10px;" type='', name='') Show Results
+            a(href="/restaurantlist/#{highestVote}", class="btn btn-default", type= "submit", role="button") Show Results
 
             //- form#formWinningRest(name="winningrestaurant",method="get",action="/winningrestaurant")
                 //- button(type='submit', id='showresultsbtn') Show Results
