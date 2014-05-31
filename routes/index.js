@@ -5,6 +5,9 @@ var restaurantVotes = Array();
 var restaurantCounts = new Array();
 var indexOfRestaurant= 0;
 var restaurantUsers = [];
+var globalHighestVote = 0;
+
+// var restaurantNames = new Array();
 var restaurantNames = ['Falafel Corner','zPizza','Eastern Winds','Extreme Pita'];
 var menuItems = Array();
 var menuItemsForCurrentOrder = '';
@@ -12,10 +15,21 @@ var sessionID;
 
 var voted = 0, maxVotes = restaurantNames.length;
 
-var users = [["t", "melvin", "hello@hello.com", 'admin', 'offline'],
-["Peter Kim", "hamburger", "peter@kim.com", 'notadmin', 'offline']];
+function initializeRestaurantList () {
+    //get the list of restaurants
+    //from the mongo restaurantcollection
+    //code goes here
 
+    //start with an empty array
+    restaurantNames = new Array();
 
+    //for each restaurant:
+    //restaurantNames.push(restaurantName);
+}
+
+//client sessions variables
+const
+clientSessions = require("client-sessions");
 
 //GET Login page
 router.get('/', function(req, res) {
@@ -72,6 +86,8 @@ router.post('/', function(req, res) {
     //Request username and password
     var username = req.body.username;
     var password = req.body.password;
+    console.log("post for login username = " + username);
+//    console.log ("Current Highest vote = " + highestVote);
 
     //Set collection
     var collection = db.get('usercollection');
@@ -81,6 +97,17 @@ router.post('/', function(req, res) {
     //Login request
     collection.findOne({ username: username }).on('success', function (doc) {
         if (doc.password === password) {
+            req.session_state.cookieName = username;
+            console.log(req.session_state.cookieName + ' logged in.');
+
+            //Initialize state for restaurant vote submit button
+            //and the restaurant item selection submit button
+            req.session_state.restaurantVoteClickCount = 0;
+            req.session_state.restaurantItemClickCount = 0;
+
+            //// LOG OUT SESSION
+            // req.session_state.reset();
+            // res.redirect('/');
             if(doc.admin === "1") {
 
                 sessionID = Math.random() * 100;
@@ -107,7 +134,6 @@ else {
             //Wrong Username
             res.redirect('/login');
         });
-
 });
 
 //POST to Add User Service
@@ -720,7 +746,6 @@ router.get('/neworder', function(req, res) {
   console.log(sessionID);
   var db = req.db;
   var access = db.get('logInId');
-
   access.find({ id: sessionID }).on('success', function (doc) {
 
     if (doc[0].admin === "yes") {
@@ -739,7 +764,6 @@ router.get('/neworder', function(req, res) {
                 "newOrder" : orderdocs
             });
         });
-
     }
     else {
         res.location("greeting");
@@ -836,7 +860,8 @@ router.post('/NewItemForCurrentOrder', function(req, res) {
     var selectedItem = req.body.selecteditem;
     var highestVote = req.body.highestVote;
     var restphone = req.body.restphone;
-    console.log("local highestVote = " + highestVote);
+//    console.log("local highestVote = " + highestVote);
+    console.log("1globalhighestVote = " + globalHighestVote);
 
     var specialRequest = req.body.specialRequest;
     var selectedRestaurant = req.body.specialRequest;
@@ -854,9 +879,15 @@ router.post('/NewItemForCurrentOrder', function(req, res) {
             console.log('restaurantname = ' + restaurantNames[highestVote]);
               res.location("restaurantlist");
               // resetVotingArrays();
-              res.redirect("restaurantlist/0");
+              res.redirect("restaurantlist/"+ globalHighestVote);
         }
     })
+
+    //increment restaurant item click count for
+    //this session to disable the item submit button
+    req.session_state.restaurantItemClickCount += 1;
+
+    // selectRestaurantItemSubmitBtnClickCount++;
     // var dbstatscount = db.collection.stats.count();
     // console.log("dbstatscount = " + dbstatscount);
 
@@ -951,29 +982,28 @@ router.post('/NewItemForCurrentOrderAdmin', function(req, res) {
 
     // Set our internal DB variable
     var db = req.db;
+    var selectedItem = req.body.selecteditem;
+    var restphone = req.body.restphone;
+    console.log("Admin 2globalhighestVote = " + globalHighestVote);
 
-    var orderInput = req.body.selecteditem;
-
-    var requestInput = req.body.specialRequest;
-
+    var specialRequest = req.body.specialRequest;
+    var selectedRestaurant = req.body.specialRequest;
 
     // Set our collection
     var collection = db.get('ordercollection');
 
-    // Submit to the DB
-    collection.update(
-        { restname: "Z Pizza" },
-        { $push: { orderitems: {menuitem: orderInput, specialreq: requestInput}}},
-        function (err, doc) {
-            if(err) {
-                res.send("There was a problem submitting your menu item.");
-            }
-            else {
-                res.location("neworder");
-
-                res.redirect("neworder");
-            }
-        })
+    collection.insert(
+    {restname: restaurantNames[globalHighestVote], menuitem: selectedItem, specialreq: specialRequest, phonenumber: restphone},
+    function (err, doc) {
+        if(err) {
+            res.send("There was a problem submitting your menu item.");
+        }
+        else {
+              res.location("neworder");
+              // resetVotingArrays();
+              res.redirect("neworder");
+        }
+    })
 });
 
 /* GET New Restaurant page. */
@@ -1106,18 +1136,49 @@ router.post('/removerestaurant', function(req, res) {
     });
 });
 
+// button(disabled="disabled")
+
 /* GET restaurant list CLIENT */
 router.get('/restaurantlist/:highestVote', function(req, res) {
-    var highestVote = req.params.highestVote;
+    console.log(req.session_state.cookieName + ' logged in.');
 
-    console.log("highestVote in parameter = " + highestVote);
+//    var highestVote = req.params.highestVote;
+//    console.log("highestVote in parameter = " + highestVote);
+//    globalHighestVote = highestVote;
+    console.log("3GlobalhighestVote in parameter = " + globalHighestVote);
+
+    // req.session_state.restaurantVoteClickCount += 1;
+
     var db = req.db;
     var collection = db.get('restaurantcollection');
     collection.find({},{},function(e,docs){
 
         res.render('restlist', {
             "restlist" : docs,
-            "highestVote":highestVote
+            "highestVote":globalHighestVote,
+            "disabledvote":req.session_state.restaurantVoteClickCount,
+            "disableditem":req.session_state.restaurantItemClickCount
+        });
+    });
+});
+
+/* GET restaurant list CLIENT */
+router.get('/addmenuitemadmin', function(req, res) {
+    res.location("addmenuitemadmin/:highestVote");
+
+    res.redirect("addmenuitemadmin/:highestVote");
+});
+
+/* GET restaurant list Admin */
+router.get('/addmenuitemadmin/:highestVote', function(req, res) {
+    console.log("4globalhighestVote for admin = " + globalHighestVote);
+    var db = req.db;
+    var collection = db.get('restaurantcollection');
+    collection.find({},{},function(e,docs){
+
+        res.render('addmenuitemadmin', {
+            "restlist" : docs,
+            "highestVote":globalHighestVote
         });
     });
 });
@@ -1153,8 +1214,9 @@ router.post('/selectrestaurant', function(req, res) {
     var selectedrestaurant = req.body.rest.name;
 
     // The variable highestVote is the index in the array of restaurants that has the highest vote
-    var highestVote = getHighestVote(selectedrestaurant);
-    console.log("returned highest vote index = " + highestVote);
+//    highestVote = getHighestVote(selectedrestaurant);
+    globalHighestVote = getHighestVote(selectedrestaurant);
+    console.log("returned Global highest vote index = " + globalHighestVote);
 
     // Set our collection
     var collection = db.get('votecollection');
@@ -1162,7 +1224,7 @@ router.post('/selectrestaurant', function(req, res) {
 
     // Submit to the DB
     collection.update(
-        { restname: restaurantNames[highestVote] },
+        { restname: restaurantNames[globalHighestVote] },
         { $push: { restaurantvote: {restaurantvote: selectedrestaurant}}},
         function (err, doc) {
             console.log(selectedrestaurant);
@@ -1172,13 +1234,19 @@ router.post('/selectrestaurant', function(req, res) {
             else {
                 res.location("restaurantlist");
 
-                res.redirect("restaurantlist/"+highestVote);
+                res.redirect("restaurantlist/"+globalHighestVote);
             }
         });
     restaurant.find({},{},function(e,docs){
             restlist: docs
 
         });
+
+    //Increment following variable to prevent
+    //multiple restaurant vote submissions
+    //DO NOT PUT THIS IN GET ROUTE BECAUSE
+    //IT WILL FAIL
+    req.session_state.restaurantVoteClickCount += 1;
 });
 
 function resetVotingArrays(){
@@ -1202,15 +1270,15 @@ function getHighestVote(votedRestaurant){
         }
     }
 
-    highestVote = -1;
+    var globalHighestVote = -1;
 
     for(var i=0; i<restaurantNames.length; i++) {
         console.log("restaurantvotes[i] = " + restaurantVotes[i]);
 
-        if(highestVote < restaurantVotes[i]) {
+        if(globalHighestVote < restaurantVotes[i]) {
             console.log("found higher vote count: " + restaurantVotes[i]);
             console.log("found higher restaurant: " + restaurantNames[i]);
-            highestVote = restaurantVotes[i];
+            globalHighestVote = restaurantVotes[i];
             indexOfRestaurant = i;
         }
     }
@@ -1236,7 +1304,7 @@ router.get('/restaurantlistadmin', function(req, res) {
             collection.find({},{},function(e,docs){
                 res.render('restlistadmin', {
                     "restlistadmin" : docs,
-                    "voted":voted
+                    "voted":globalHighestVote
                 })
             });
         } else {
@@ -1271,7 +1339,8 @@ router.post('/orderform', function(req, res) {
             var rand1 = Math.floor(20 * Math.random()) + 1;
             // Submit to the DB
             var resetcollection = db.get('ordercollection');
-
+            resetVotingArrays();
+            console.log("rest votes are now = " + restaurantVotes.length)
             resetcollection.remove({}, function(err, doc) {});
 
             collection.insert(
@@ -1281,17 +1350,21 @@ router.post('/orderform', function(req, res) {
                         res.send("There was a problem submitting your menu item.");
                     }
                     else {
+                        //increment restaurant item click count for
+                        //this session to disable the item submit button
+                        // req.session_state.restaurantItemClickCount += 1;
+
                         console.log('restaurantname = ' + restaurantName);
                         res.location("orderhistory");
 
                         res.redirect("orderhistory");
                     }
                 })
-} else {
+        } else {
             res.location("greeting");
             res.redirect('greeting');
         };
-});
+    });
 });
 
     // //SIGNOUT GET
@@ -1345,3 +1418,4 @@ router.post('/addTaskSave11', function(req, res) {
 });
 
 module.exports = router;
+
